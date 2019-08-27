@@ -1,24 +1,20 @@
 package com.adam.theinternet;
 
+
+import com.adam.utilites.testUtilities;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class positiveTests {
+public class positiveTests extends testUtilities {
 
     @Test
     public void logInTest() {
         System.out.println("Starting logIn test");
 
-        // Create driver
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
 
         // open main page
         String url = "http://the-internet.herokuapp.com/";
@@ -31,6 +27,7 @@ public class positiveTests {
         // enter username and password
         driver.findElement(By.id("username")).sendKeys("tomsmith");
         driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
+        //sleep(3000);
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
@@ -55,7 +52,5 @@ public class positiveTests {
                 "actualSuccessMessage does not contain expectedSuccessMessage\nexpectedSuccessMessage: "
                         + expectedSuccessMessage + "\nactualSuccessMessage: " + actualSuccessMessage);
 
-        // Close browser
-        driver.quit();
     }
 }

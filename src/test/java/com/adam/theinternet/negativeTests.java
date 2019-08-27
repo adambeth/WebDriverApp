@@ -1,14 +1,12 @@
 package com.adam.theinternet;
 
-import com.adam.utilites.baseTest;
+
+import com.adam.utilites.testUtilities;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class negativeTests extends baseTest {
+public class negativeTests extends testUtilities {
 
 
 

@@ -1,11 +1,12 @@
 package com.adam.utilites;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.logging.Logger;
 
 public class driverFactory<driver> {
-    private ThreadLocal<WebDriver> driver = null;
+    private ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
     //private Logger loggger;
 
 
@@ -14,11 +15,11 @@ public class driverFactory<driver> {
         switch (browser.toLowerCase()) {
             case ("chrome"):
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
-                driver = new ThreadLocal<WebDriver>();
+                driver.set(new ChromeDriver());
                 break;
             default:
                 System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
-                driver = new ThreadLocal<WebDriver>();
+                driver.set(new ChromeDriver());
                 System.out.println("Default Selected");
 
 

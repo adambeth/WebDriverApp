@@ -21,7 +21,7 @@ public class driverFactory<driver> {
                 driver.set(new ChromeDriver());
                 break;
             case ("firefox"):
-                System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
+                System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver");
                 driver.set(new FirefoxDriver());
                 break;
             default:

@@ -1,40 +1,40 @@
 package com.adam.theinternet;
 
 
+import com.adam.pages.loginPage;
+import com.adam.pages.securePage;
+import com.adam.pages.welcomePage;
 import com.adam.utilites.testUtilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class positiveTests extends testUtilities {
 
     @Test
-    public void logInTest() {
+    @Parameters({"username","password"})
+    public void logInTest(String username, String password) {
         System.out.println("Starting logIn test");
 
 
         // open main page
         String url = "http://the-internet.herokuapp.com/";
         driver.get(url);
-        System.out.println("Main page is opened.");
+        log.info("Opening Welcome Page");
 
-        // Click on Form Authentication link
-        driver.findElement(By.linkText("Form Authentication")).click();
+        welcomePage welcome = new welcomePage(driver,log);
+        loginPage login= welcome.clickFormAuthentication();
+        log.info("Clicking and navigating to Form authentication");
 
-        // enter username and password
-        driver.findElement(By.id("username")).sendKeys("tomsmith");
-        driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
-        //sleep(3000);
+        securePage securePage = login.LogIn(username,password);
+        log.info("Creating Secure Page object");
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
-        // push log in button
-        WebElement logInButton = driver.findElement(By.className("radius"));
-        wait.until(ExpectedConditions.elementToBeClickable(logInButton));
-        logInButton.click();
 
         // verifications
         // new url

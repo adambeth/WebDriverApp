@@ -11,22 +11,23 @@ public class welcomePage {
 
     By formAuthentication = By.linkText("Form Authentication");
 
-    public welcomePage(WebDriver driver) {
+    public welcomePage(WebDriver driver, Logger log) {
         this.driver = driver;
         this.log = log;
     }
 
 
-    public void openPage(String url){
+    public void openPage(String url ){
         System.out.println("Opening http://the-internet.herokuapp.com/");
         driver.get(url);
         System.out.println("Page Opened");
     }
 
 
-    public void clickFormAuthentication(){
+    public loginPage clickFormAuthentication(){
         driver.findElement(formAuthentication).click();
         System.out.println("Form authentication clicked");
+        return new loginPage(driver,log);
     }
 
 

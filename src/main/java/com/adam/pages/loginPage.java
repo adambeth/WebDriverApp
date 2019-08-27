@@ -20,20 +20,10 @@ public class loginPage {
     }
 
 
-    public void enterUsername(String name){
-        driver.findElement(username).sendKeys(name);
 
-    }
-
-    public void enterPassword(String pWord){
-
-        driver.findElement(password).sendKeys(pWord);
-
-    }
-
-
-    public securePage LogIn(){
-
+    public securePage LogIn(String uname, String pword){
+        driver.findElement(username).sendKeys(uname);
+        driver.findElement(password).sendKeys(pword);
         driver.findElement(btnLogin).click();
         return new securePage(driver, log);
     }

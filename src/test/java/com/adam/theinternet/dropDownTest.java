@@ -12,7 +12,7 @@ public class dropDownTest extends testUtilities {
 
         welcomePage welcome = new welcomePage(driver,log);
         welcome.openPage();
-        dropDownPage dropDown = welcome.clickDropDown();
+        dropDownPage dropDown = welcome.openDropDown();
 
         dropDown.selectOptions(2);
 

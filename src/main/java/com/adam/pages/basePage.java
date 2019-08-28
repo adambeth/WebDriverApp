@@ -1,10 +1,7 @@
 package com.adam.pages;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -60,7 +57,7 @@ public class basePage {
     /**
      * Wait for specific ExpectedCondition for the given amount of time in seconds
      */
-    private void waitFor(ExpectedCondition<WebElement> condition, Integer timeOutInSeconds) {
+    protected void waitFor(ExpectedCondition<WebElement> condition, Integer timeOutInSeconds) {
         timeOutInSeconds = timeOutInSeconds != null ? timeOutInSeconds : 30;
         WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
         wait.until(condition);
@@ -88,8 +85,15 @@ public class basePage {
         return driver.getCurrentUrl();
     }
 
-    public List<WebElement> findAll(By locator){
+    protected List<WebElement> findAll(By locator){
         return driver.findElements(locator);
+    }
+
+    protected Alert switchToAlert(){
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.alertIsPresent());
+        return driver.switchTo().alert();
+
     }
 
 }

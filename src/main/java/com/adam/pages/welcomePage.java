@@ -13,8 +13,10 @@ public class welcomePage extends basePage {
 
     private String url = "http://the-internet.herokuapp.com/";
     private By formAuthentication = By.linkText("Form Authentication");
-    private By checkBoxes = By.xpath("//div[@id='content']/ul//a[@href='/checkboxes']");
-    private By dropDown = By.xpath("//div[@id='content']/ul//a[@href='/dropdown']");
+    private By checkBoxes = By.xpath("//a[@href='/checkboxes']");
+    private By dropDown = By.xpath("//a[@href='/dropdown']");
+    private By javaScriptAlerts = By.xpath("//a[@href='/javascript alerts']");
+
 
     public void openPage( ){
         log.info("opening Page");
@@ -24,24 +26,28 @@ public class welcomePage extends basePage {
     }
 
 
-    public loginPage clickFormAuthentication(){
+    public loginPage openFormAuthentication(){
 
         click(formAuthentication);
         System.out.println("Form authentication clicked");
         return new loginPage(driver,log);
     }
 
-    public checkBoxPage clickCheckBox(){
+    public checkBoxPage openCheckBox(){
 
         click(checkBoxes);
         return new checkBoxPage(driver,log);
     }
 
-    public dropDownPage clickDropDown(){
+    public dropDownPage openDropDown(){
         click(dropDown);
         return new dropDownPage(driver,log);
     }
+    public alertPage openJSAlerts(){
+        click(javaScriptAlerts);
+        return new alertPage(driver, log);
 
+    }
 
 
 }

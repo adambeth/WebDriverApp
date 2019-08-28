@@ -15,7 +15,7 @@ public class checkBoxTests extends testUtilities {
 
         welcomePage welcome = new welcomePage(driver, log);
         welcome.openPage();
-        checkBoxPage checkBoxPage = welcome.clickCheckBox();
+        checkBoxPage checkBoxPage = welcome.openCheckBox();
         checkBoxPage.selectAllCheckBoxes();
 
         Assert.assertEquals(checkBoxPage.areAllChecked(),true);

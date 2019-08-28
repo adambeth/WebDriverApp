@@ -5,7 +5,6 @@ import com.adam.pages.loginPage;
 import com.adam.pages.securePage;
 import com.adam.pages.welcomePage;
 import com.adam.utilites.testUtilities;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
@@ -22,7 +21,7 @@ public class positiveTests extends testUtilities {
         // open main page
         welcomePage welcome = new welcomePage(driver,log);
         welcome.openPage();
-        loginPage login= welcome.clickFormAuthentication();
+        loginPage login= welcome.openFormAuthentication();
         securePage securePage = login.LogIn(username,password);
 
         WebDriverWait wait = new WebDriverWait(driver, 10);

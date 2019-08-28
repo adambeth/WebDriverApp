@@ -6,8 +6,6 @@ import com.adam.pages.securePage;
 import com.adam.pages.welcomePage;
 import com.adam.utilites.testUtilities;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
@@ -24,14 +22,14 @@ public class positiveTests extends testUtilities {
         // open main page
         String url = "http://the-internet.herokuapp.com/";
         driver.get(url);
-        log.info("Opening Welcome Page");
+        //log.info("Opening Welcome Page");
 
         welcomePage welcome = new welcomePage(driver,log);
         loginPage login= welcome.clickFormAuthentication();
-        log.info("Clicking and navigating to Form authentication");
+        //log.info("Clicking and navigating to Form authentication");
 
         securePage securePage = login.LogIn(username,password);
-        log.info("Creating Secure Page object");
+        //log.info("Creating Secure Page object");
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
 

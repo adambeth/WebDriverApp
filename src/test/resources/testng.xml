@@ -3,25 +3,23 @@
 <suite name="NegativeTestSuite" verbose="1">
 
     <test name="NegativeUsernameTest-CH">
-        <parameter name="username" value="incorrectUsername"/>
+        <parameter name="username" value="tomsmith"/>
         <parameter name="password" value="SuperSecretPassword!"/>
-        <parameter name="expectedMessage" value="Your username is invalid!"/>
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="com.adam.theinternet.negativeTests">
+            <class name="com.adam.theinternet.positiveTests">
             </class>
         </classes>
     </test>
 
-    <test name="NegativeUsernameTest-FF">
-        <parameter name="username" value="incorrectUsername"/>
-        <parameter name="password" value="SuperSecretPassword!"/>
-        <parameter name="expectedMessage" value="Your username is invalid!"/>
-        <parameter name="browser" value="firefox"/>
-        <classes>
-            <class name="com.adam.theinternet.negativeTests">
-            </class>
-        </classes>
-    </test>
+<!--    <test name="NegativeUsernameTest-FF">-->
+<!--        <parameter name="username" value="tomsmith"/>-->
+<!--        <parameter name="password" value="SuperSecretPassword!"/>-->
+<!--        <parameter name="browser" value="firefox"/>-->
+<!--        <classes>-->
+<!--            <class name="com.adam.theinternet.positiveTests">-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 </suite>

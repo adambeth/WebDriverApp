@@ -4,7 +4,8 @@ package com.adam.theinternet;
 import com.adam.utilites.testUtilities;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 public class negativeTests extends testUtilities {
 

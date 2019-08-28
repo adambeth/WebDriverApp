@@ -4,10 +4,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class loginPage {
-
-    private WebDriver driver;
-    private Logger log;
+public class loginPage extends basePage {
 
     By username = By.id("username");
     By password = By.id("password");
@@ -15,11 +12,8 @@ public class loginPage {
 
 
     public loginPage(WebDriver driver, Logger log) {
-        this.driver = driver;
-        this.log = log;
+        super(driver, log);
     }
-
-
 
     public securePage LogIn(String uname, String pword){
         driver.findElement(username).sendKeys(uname);
@@ -27,4 +21,6 @@ public class loginPage {
         driver.findElement(btnLogin).click();
         return new securePage(driver, log);
     }
+
+
 }

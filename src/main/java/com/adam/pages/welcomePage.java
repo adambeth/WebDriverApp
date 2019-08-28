@@ -12,10 +12,11 @@ public class welcomePage extends basePage {
     }
 
     private String url = "http://the-internet.herokuapp.com/";
-    By formAuthentication = By.linkText("Form Authentication");
+    private By formAuthentication = By.linkText("Form Authentication");
+    private By checkBoxes = By.xpath("//div[@id='content']/ul//a[@href='/checkboxes']");
 
 
-    public void openPage(String url ){
+    public void openPage( ){
         log.info("opening Page");
         System.out.println("Opening http://the-internet.herokuapp.com/");
         openUrl(url);
@@ -24,9 +25,16 @@ public class welcomePage extends basePage {
 
 
     public loginPage clickFormAuthentication(){
+
         click(formAuthentication);
         System.out.println("Form authentication clicked");
         return new loginPage(driver,log);
+    }
+
+    public checkBoxPage clickCheckBox(){
+
+        click(checkBoxes);
+        return new checkBoxPage(driver,log);
     }
 
 

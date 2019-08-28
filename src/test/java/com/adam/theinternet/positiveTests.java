@@ -20,16 +20,10 @@ public class positiveTests extends testUtilities {
 
 
         // open main page
-        String url = "http://the-internet.herokuapp.com/";
-        driver.get(url);
-        //log.info("Opening Welcome Page");
-
         welcomePage welcome = new welcomePage(driver,log);
+        welcome.openPage();
         loginPage login= welcome.clickFormAuthentication();
-        //log.info("Clicking and navigating to Form authentication");
-
         securePage securePage = login.LogIn(username,password);
-        //log.info("Creating Secure Page object");
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
@@ -37,15 +31,15 @@ public class positiveTests extends testUtilities {
         // verifications
         // new url
         String expectedUrl = "http://the-internet.herokuapp.com/secure";
-        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
+        Assert.assertEquals(securePage.getPageUrl(), expectedUrl);
 
         // log out button is visible
-        Assert.assertTrue(driver.findElement(By.xpath("//a[@class='button secondary radius']")).isDisplayed(),
+        Assert.assertTrue(securePage.isLogOutButtonVisible(),
                 "logOutButton is not visible.");
 
         // Successful log in message
         String expectedSuccessMessage = "You logged into a secure area!";
-        String actualSuccessMessage = driver.findElement(By.id("flash")).getText();
+        String actualSuccessMessage = securePage.getSuccessMessage();
         Assert.assertTrue(actualSuccessMessage.contains(expectedSuccessMessage),
                 "actualSuccessMessage does not contain expectedSuccessMessage\nexpectedSuccessMessage: "
                         + expectedSuccessMessage + "\nactualSuccessMessage: " + actualSuccessMessage);

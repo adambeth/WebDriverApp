@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class basePage {
 
     protected WebDriver driver;
@@ -79,6 +81,15 @@ public class basePage {
             }
             attempts++;
         }
+    }
+
+    protected String getUrl(){
+
+        return driver.getCurrentUrl();
+    }
+
+    public List<WebElement> findAll(By locator){
+        return driver.findElements(locator);
     }
 
 }

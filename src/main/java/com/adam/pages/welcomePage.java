@@ -15,7 +15,8 @@ public class welcomePage extends basePage {
     private By formAuthentication = By.linkText("Form Authentication");
     private By checkBoxes = By.xpath("//a[@href='/checkboxes']");
     private By dropDown = By.xpath("//a[@href='/dropdown']");
-    private By javaScriptAlerts = By.xpath("//a[@href='/javascript alerts']");
+    private By javaScriptAlerts = By.xpath("//a[@href='/javascript_alerts']");
+    private By multiWindow = By.xpath("//div[@id='content']/ul//a[@href='/windows']");
 
 
     public void openPage( ){
@@ -47,6 +48,12 @@ public class welcomePage extends basePage {
         click(javaScriptAlerts);
         return new alertPage(driver, log);
 
+    }
+    
+    public mWindowPage openMultiWindow() {
+    	
+    	click(multiWindow);
+    	return new mWindowPage(driver,log);
     }
 
 

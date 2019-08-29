@@ -57,4 +57,12 @@ public class alertPage extends basePage {
         alert.dismiss();
 
     }
+    
+    /** Get alert text */
+    
+    public String getResultText() {
+    	 String results = driver.findElement(resultTextLocator).getText();
+    	 return results;
+    	
+    }
 }
